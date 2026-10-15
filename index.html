@@ -1,0 +1,203 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>MED10 — Ótica</title>
+<style>
+:root{--bg:#f1f1ef;--fg:#0b0b0b;--mut:#6b6b68;--card:#fff;--line:#d9d9d5;--ac:#b8935a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e0e0d;--fg:#f1f1ef;--mut:#9a9a95;--card:#181817;--line:#2c2c2a}}
+:root[data-theme="dark"]{--bg:#0e0e0d;--fg:#f1f1ef;--mut:#9a9a95;--card:#181817;--line:#2c2c2a}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif}
+h1,h2,h3{font-family:Impact,"Arial Black",system-ui,sans-serif;font-weight:900;letter-spacing:-.02em;line-height:.95;margin:0;text-transform:uppercase}
+h1{font-size:clamp(46px,9vw,120px)}h2{font-size:clamp(32px,5.5vw,68px)}
+a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer;color:inherit}
+.w{max-width:1200px;margin:auto;padding:0 20px}.sec{padding:72px 0}.eye{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--mut)}
+.btn{display:inline-block;border:1px solid var(--fg);background:var(--fg);color:var(--bg);padding:13px 24px;border-radius:99px;font-size:12px;letter-spacing:.1em;font-weight:600;text-transform:uppercase;transition:.25s}
+.btn:hover{transform:translateY(-2px)}.btn.o{background:transparent;color:var(--fg)}.btn.ac{background:var(--ac);border-color:var(--ac);color:#111}.btn.w100{width:100%;text-align:center}
+header{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:22px;height:64px}.logo{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:.3em;font-size:16px}.logo svg{height:30px;width:auto}
+.nav nav{display:flex;gap:20px;font-size:11px;letter-spacing:.14em;margin-right:auto;margin-left:20px}.nav nav a:hover{color:var(--ac)}
+.ic{background:none;border:0;font-size:11px;letter-spacing:.1em;position:relative;padding:6px}.badge{background:var(--ac);color:#111;border-radius:99px;font-size:10px;padding:1px 6px;margin-left:3px}
+.burger{display:none;font-size:22px}
+.hero{position:relative;min-height:88vh;background:radial-gradient(circle at 70% 40%,#4a4339,#15140f 65%);color:#f1f1ef;display:flex;align-items:flex-end;overflow:hidden}
+.hero svg.big{position:absolute;right:-4%;top:12%;width:62%;opacity:.95;animation:fl 8s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-14px)}}
+.hero .w{position:relative;padding-bottom:64px;padding-top:120px}.hero p{max-width:420px;font-size:17px}
+.side{position:absolute;right:20px;bottom:64px;font-size:10px;letter-spacing:.3em;line-height:2;text-align:right}
+.hero .btn.o{color:#f1f1ef;border-color:#f1f1ef}.hero .btn:not(.o){background:#f1f1ef;color:#111}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:28px 0 12px}
+.chip{border:1px solid var(--line);background:none;border-radius:99px;padding:7px 14px;font-size:12px}.chip.on{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.frow{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px}select,input,textarea{font:inherit;background:var(--card);color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:11px 12px;width:100%}
+.frow select{width:auto}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--card);border-radius:6px;overflow:hidden;transition:.3s;cursor:pointer}.card:hover{transform:translateY(-4px);box-shadow:0 14px 30px #0002}
+.card .im{aspect-ratio:4/3;background:linear-gradient(#e9e8e4,#dcdad4);display:grid;place-items:center;position:relative;overflow:hidden}.card .im svg{width:78%;transition:.5s}.card:hover .im svg{transform:scale(1.07)}
+.tag{position:absolute;top:10px;left:10px;background:#111;color:#fff;font-size:10px;letter-spacing:.1em;padding:3px 9px;border-radius:99px}
+.card .in{padding:14px 16px 18px}.dots{display:flex;gap:5px;margin:6px 0 12px}.dot{width:13px;height:13px;border-radius:50%;border:1px solid #0004;display:inline-block}
+.band{background:#0b0b0b;color:#f1f1ef;border-radius:8px;padding:56px 32px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.band.l{background:#d9d6cf;color:#0b0b0b}
+.feat{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:1px solid var(--line);margin-top:40px}.feat div{padding:24px 14px;border-right:1px solid var(--line)}.feat b{display:block;font-size:12px;letter-spacing:.14em;margin:8px 0 4px}.feat span{color:var(--mut);font-size:13px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}.story{aspect-ratio:1;border-radius:8px;background:radial-gradient(circle at 30% 30%,#6b5b45,#16130e);display:grid;place-items:center}.story svg{width:80%}
+.trust{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;text-align:center;font-size:11px;letter-spacing:.1em}.trust i{display:block;font-style:normal;font-size:26px;margin-bottom:6px}
+.tst{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.tst div{background:var(--card);padding:22px;border-radius:6px}.st{color:var(--ac);letter-spacing:2px}
+footer{background:#0b0b0b;color:#cfcfca;padding:56px 0 30px;font-size:13px}footer .w{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}footer h4{margin:0 0 12px;font-size:11px;letter-spacing:.2em;color:#fff}footer a{display:block;padding:3px 0}footer small{grid-column:1/-1;border-top:1px solid #333;padding-top:18px}
+#pg{display:none;min-height:80vh}.crumb{font-size:12px;letter-spacing:.1em;margin:24px 0;display:inline-block}
+.pd{display:grid;grid-template-columns:1.2fr 1fr;gap:40px}.main{aspect-ratio:1;background:linear-gradient(#e9e8e4,#d9d6cf);border-radius:6px;display:grid;place-items:center}.main svg{width:80%}
+.th{display:flex;gap:10px;margin-top:10px}.th button{width:76px;height:76px;border:1px solid var(--line);background:#e4e2dc;border-radius:6px;padding:6px}.th button.on{border-color:var(--fg)}
+.qty{display:inline-flex;border:1px solid var(--line);border-radius:99px;align-items:center}.qty button{background:none;border:0;width:36px;height:36px;font-size:18px}.qty span{min-width:26px;text-align:center}
+.sw{width:30px;height:30px;border-radius:50%;border:2px solid transparent;outline:1px solid #0004;margin-right:8px;cursor:pointer}.sw.on{border-color:var(--bg);outline:2px solid var(--fg)}
+.f{display:grid;grid-template-columns:1fr 1fr;gap:10px}.f .s{grid-column:1/-1}label{font-size:11px;letter-spacing:.1em;color:var(--mut);display:block;margin:6px 0 3px}
+.box{background:var(--card);border-radius:8px;padding:24px;margin-bottom:18px}.pay{display:flex;gap:8px;margin-bottom:12px}
+.ok{background:var(--card);border:1px solid var(--ac);border-radius:8px;padding:24px;margin-top:18px}
+.stp{list-style:none;padding:0;margin:20px 0}.stp li{padding:10px 0 10px 34px;position:relative;color:var(--mut)}.stp li:before{content:"";position:absolute;left:0;top:12px;width:16px;height:16px;border-radius:50%;border:2px solid var(--line)}.stp li.d{color:var(--fg)}.stp li.d:before{background:var(--ac);border-color:var(--ac)}
+.ov{position:fixed;inset:0;background:#0007;z-index:40;opacity:0;pointer-events:none;transition:.3s}.ov.on{opacity:1;pointer-events:auto}
+.dr{position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);background:var(--bg);z-index:41;transform:translateX(105%);transition:.4s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;padding:20px;padding-top:max(20px,env(safe-area-inset-top,0px))}.dr.on{transform:none}
+.dr .bd{flex:1;overflow:auto}.ci{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);align-items:center}.ci svg{width:70px;background:#e4e2dc;border-radius:6px;padding:6px}
+.wa{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:35;background:#25d366;color:#fff;border-radius:99px;padding:14px 18px;font-weight:700;box-shadow:0 8px 24px #0004;font-size:13px}
+.rv{opacity:0;transform:translateY(24px);transition:.8s}.rv.in{opacity:1;transform:none}
+.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:#111;color:#fff;padding:10px 18px;border-radius:99px;z-index:60;font-size:13px}
+.dm{font-size:11px;color:var(--mut)}
+@media(max-width:820px){.nav nav,.nav .hide{display:none}.burger{display:block}.nav{justify-content:space-between;gap:8px}.logo{font-size:16px}
+.nav nav.open{display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:var(--bg);padding:20px;margin:0;gap:18px;border-bottom:1px solid var(--line);font-size:14px}
+.grid{grid-template-columns:1fr 1fr;gap:10px}.card .in{padding:10px}.feat,.trust{grid-template-columns:1fr 1fr}.feat div{border-bottom:1px solid var(--line)}.two,.pd,.tst{grid-template-columns:1fr}footer .w{grid-template-columns:1fr 1fr}
+.hero svg.big{width:120%;right:-30%;top:6%;opacity:.55}.side{display:none}.sec{padding:48px 0}.btn{padding:15px 22px}.wa span{display:none}.band{padding:36px 22px}}
+</style></head><body>
+<header><div class="w nav"><button class="ic burger" onclick="document.querySelector('nav').classList.toggle('open')" aria-label="Menu">☰</button>
+<a class="logo" href="#/" id="brand"></a>
+<nav onclick="this.classList.remove('open')"><a href="#produtos">PRODUTOS</a><a href="#colecoes">COLEÇÕES</a><a href="#sobre">SOBRE</a><a href="#tecnologia">TECNOLOGIA</a><a href="#contato">CONTATO</a></nav>
+<button class="ic hide" onclick="document.getElementById('q').focus();location.hash='#produtos'">BUSCAR</button><a class="ic hide" href="#/rastreio">CONTA</a>
+<button class="ic" onclick="openCart()">CARRINHO<span class="badge" id="cn">0</span></button><a class="ic hide" id="wah" target="_blank" rel="noopener">WHATSAPP</a>
+<a class="btn ac hide" href="#produtos" style="padding:10px 18px">Comprar agora</a></div></header>
+
+<main id="home">
+<section class="hero"><svg class="big" viewBox="0 0 400 140" id="hg"></svg><div class="w rv"><div class="eye" style="color:#cfc7b8">Tecnologia · Estilo · Visão</div><br><h1>Enxergue<br>o futuro.</h1><p>Óculos desenvolvidos para acompanhar seu estilo, sua rotina e sua visão.</p><br><a class="btn" href="#produtos">Conheça a coleção →</a> <a class="btn o" href="#produtos">Comprar agora</a></div>
+<div class="side">DESIGNED FOR<br>EVERYDAY LIFE<br><br>TECHNOLOGY<br>STYLE<br>VISION</div></section>
+
+<section class="sec" id="produtos"><div class="w"><div class="eye">A coleção</div><h2 class="rv">Nossos óculos</h2><p style="color:var(--mut)">Design que combina tecnologia, conforto e personalidade.</p>
+<div class="filters" id="fl"></div>
+<div class="frow"><input id="q" placeholder="Buscar modelo" style="max-width:220px"><select id="fc"><option value="">Cor: todas</option></select><select id="fp"><option value="">Preço: todos</option><option value="450">Até R$ 450</option><option value="550">Até R$ 550</option><option value="9999">Acima de R$ 550</option></select><select id="fs"><option value="">Estilo: todos</option></select><select id="so"><option value="">Ordenar</option><option value="a">Menor preço</option><option value="d">Maior preço</option><option value="b">Mais vendidos</option><option value="n">Novidades</option></select></div>
+<div class="grid" id="gr"></div></div></section>
+
+<section class="w" id="colecoes"><div class="band rv"><h2>Seu novo óculos<br>está aqui.</h2><a class="btn ac" href="#produtos">Ver coleção</a></div></section>
+
+<section class="sec" id="tecnologia"><div class="w"><div class="eye">Tecnologia</div><h2 class="rv">Mais que<br>um óculos.</h2><p style="max-width:460px;color:var(--mut)">Uma nova maneira de combinar tecnologia, conforto e estilo no seu dia a dia.</p>
+<div class="feat"><div><b>DESIGN PREMIUM</b><span>Design pensado para todos os dias.</span></div><div><b>CONFORTO</b><span>Leveza e ergonomia.</span></div><div><b>TECNOLOGIA</b><span>Soluções para uma experiência melhor.</span></div><div><b>PROTEÇÃO</b><span>Lentes para proteção e conforto visual.</span></div><div><b>ESTILO</b><span>Design contemporâneo para diferentes personalidades.</span></div></div></div></section>
+
+<section class="sec" id="sobre" style="padding-top:0"><div class="w two"><div class="story rv"><svg viewBox="0 0 400 140" id="sg"></svg></div><div class="rv"><div class="eye">Nossa história</div><h2>Criados para quem<br>enxerga além.</h2><p style="color:var(--mut)">[TEXTO DA MARCA] Acreditamos que um óculos é parte da sua identidade: precisa ser leve, preciso e bonito. Unimos engenharia e design para criar peças que acompanham você do primeiro ao último minuto do dia.</p><a class="btn o" href="#sobre">Conheça a marca</a></div></div></section>
+
+<section class="w"><div class="band l rv"><h2>Descubra nossa<br>nova coleção.</h2><a class="btn" href="#produtos">Conhecer o produto</a></div></section>
+
+<section class="sec"><div class="w trust"><div><i>✈</i>ENVIO PARA TODO O BRASIL</div><div><i>🔒</i>COMPRA SEGURA</div><div><i>▭</i>PAGAMENTO SEGURO</div><div><i>↺</i><a href="#/trocas">TROCA E DEVOLUÇÃO</a></div><div><i>☺</i>ATENDIMENTO HUMANIZADO</div><div><i>✆</i>SUPORTE PELO WHATSAPP</div></div></section>
+
+<section class="sec" style="padding-top:0"><div class="w"><h2 class="rv">Quem já usa, aprova.</h2><p class="dm">* Depoimentos fictícios, apenas demonstrativos.</p><br>
+<!-- DADOS DE DEMONSTRAÇÃO -->
+<div class="tst rv"><div><span class="st">★★★★★</span><p>“Leve demais, esqueço que estou usando.”</p><b>Mariana S.</b></div><div><span class="st">★★★★★</span><p>“Chegou rápido e o atendimento no WhatsApp foi ótimo.”</p><b>Rafael T.</b></div><div><span class="st">★★★★☆</span><p>“Acabamento de ótica cara, preço justo.”</p><b>Camila R.</b></div></div></div></section>
+
+<section class="w"><div class="band rv" id="contato"><div><h2>Fique por dentro.</h2><p>Receba novidades, lançamentos e condições especiais.</p></div><form onsubmit="event.preventDefault();toast('Cadastro recebido!');this.reset()" style="display:flex;gap:8px;flex-wrap:wrap"><input type="email" required placeholder="Digite seu e-mail" style="width:240px"><button class="btn ac">Cadastrar</button></form></div></section><br><br>
+</main>
+
+<main id="pg"><div class="w" id="pgc"></div></main>
+
+<footer><div class="w"><div><h4>PRODUTOS</h4><a href="#produtos">Óculos</a><a href="#produtos">Novidades</a><a href="#produtos">Mais vendidos</a><a href="#colecoes">Coleções</a></div>
+<div><h4>ATENDIMENTO</h4><a href="#contato">Fale conosco</a><a class="wal" target="_blank" rel="noopener">WhatsApp</a><a href="#/trocas">Trocas e devoluções</a><a href="#/rastreio">Rastrear pedido</a></div>
+<div><h4>INSTITUCIONAL</h4><a href="#sobre">Nossa história</a><a href="#tecnologia">Tecnologia</a><a href="#/">Política de privacidade</a><a href="#/">Termos de uso</a></div>
+<div><h4>REDES</h4><a href="#/">Instagram [INSTAGRAM]</a><a href="#/">TikTok</a><a href="#/">Facebook</a><a href="#/">[EMAIL]</a></div><small>© 2026 <span class="bn"></span> · [ENDEREÇO]</small></div></footer>
+
+<a class="wa" id="waf" target="_blank" rel="noopener">✆ <span>WhatsApp</span></a>
+<div class="ov" id="ov" onclick="closeAll()"></div>
+<aside class="dr" id="cart"></aside>
+<aside class="dr" id="chat"></aside>
+
+<script>
+/* ============ CONFIG (edite aqui) ============ */
+const BRAND="MED10";
+const WHATSAPP_NUMBER="55XXXXXXXXXXX"; // <- substitua pelo número real (DDI+DDD+número)
+const FREE_SHIP=500, SHIP_FLAT=29.9, COUPONS={BEMVINDO10:.10};
+/* ============ DADOS (catálogo central → futuramente vem de banco/API) ============ */
+const PRODUCTS=[
+{id:"one",name:"Modelo One",description:"Armação icônica de linhas limpas para o dia a dia.",price:499.9,category:"Unissex",type:"Solar",style:"Esportivo",colors:[{n:"Âmbar",h:"#b9873f"},{n:"Fumê",h:"#555"},{n:"Clear",h:"#cfd6da"}],images:[0,1,2],stock:12,featured:true,tags:["best"],sizes:["M"],material:"Nylon injetado, lentes policarbonato",shape:"s"},
+{id:"air",name:"Modelo Air",description:"Ultraleve, com hastes flexíveis e conforto o dia todo.",price:549.9,category:"Feminino",type:"Grau",style:"Redondo",colors:[{n:"Mel",h:"#c8a05a"},{n:"Preto",h:"#222"}],images:[0,1,2],stock:8,featured:true,tags:["new"],sizes:["P","M"],material:"Titânio flexível",shape:"r"},
+{id:"vision",name:"Modelo Vision",description:"Lentes com proteção UV400 e visão ampliada.",price:599.9,category:"Masculino",type:"Solar",style:"Esportivo",colors:[{n:"Fumê",h:"#4a4a4a"},{n:"Azul",h:"#3d5a80"}],images:[0,1,2],stock:5,featured:true,tags:["best"],sizes:["M","G"],material:"Acetato e policarbonato",shape:"s"},
+{id:"urban",name:"Modelo Urban",description:"Quadrado urbano, presença e leveza.",price:449.9,category:"Masculino",type:"Grau",style:"Quadrado",colors:[{n:"Preto",h:"#1a1a1a"},{n:"Havana",h:"#7a4a2a"}],images:[0,1,2],stock:15,featured:false,tags:[],sizes:["M","G"],material:"Acetato italiano",shape:"q"},
+{id:"future",name:"Modelo Future",description:"O mais tecnológico da linha, com lente fotossensível.",price:649.9,category:"Unissex",type:"Solar",style:"Esportivo",colors:[{n:"Grafite",h:"#6a6a6a"},{n:"Âmbar",h:"#b9873f"}],images:[0,1,2],stock:6,featured:true,tags:["new"],sizes:["M"],material:"Nylon + lente fotossensível",shape:"s"},
+{id:"classic",name:"Modelo Classic",description:"Redondo atemporal, para qualquer ocasião.",price:399.9,category:"Feminino",type:"Grau",style:"Redondo",colors:[{n:"Dourado",h:"#c9a24d"},{n:"Preto",h:"#222"}],images:[0,1,2],stock:20,featured:false,tags:["best"],sizes:["P","M"],material:"Metal leve",shape:"r"}];
+/* ============ SERVICES (pontos de integração) ============ */
+const services={
+ // BACKEND: troque por fetch('/api/...') quando existir servidor.
+ async createOrder(o){await new Promise(r=>setTimeout(r,600));return{ok:true,number:"PED"+Math.floor(10000+Math.random()*89999),simulated:true}},
+ // PAGAMENTO: conectar aqui Mercado Pago (Preference/PIX), Stripe (PaymentIntent/Checkout), Asaas (cobranças) ou outro.
+ // Chave pública via variável de ambiente; NUNCA colocar chave secreta no frontend.
+ async pay(order,method){return{status:"não_integrado"}},
+ async sendLead(l){await new Promise(r=>setTimeout(r,400));return{ok:true}}, // BACKEND/CRM/atendimento
+ async sendReturn(r){await new Promise(r=>setTimeout(r,400));return{ok:true,protocol:"DEV"+Date.now().toString().slice(-7)}},
+ async trackOrder(n,id){return{step:parseInt(n.replace(/\D/g,"").slice(-1)||"0")%6,simulated:true}}};
+/* ============ UTILS ============ */
+const $=s=>document.querySelector(s),fmt=v=>v.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
+const wa=t=>`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(t)}`;
+function toast(m){const t=document.createElement("div");t.className="toast";t.textContent=m;document.body.append(t);setTimeout(()=>t.remove(),2200)}
+function glasses(c,shape="s",o=1){const l=shape==="r"?'<circle cx="115" cy="70" r="52"/><circle cx="285" cy="70" r="52"/>':shape==="q"?'<rect x="62" y="30" width="105" height="78" rx="14"/><rect x="233" y="30" width="105" height="78" rx="14"/>':'<path d="M50 38h300q10 0 8 12l-12 42q-6 20-30 20h-40q-24 0-30-22l-8-24h-30l-8 24q-6 22-30 22h-40q-24 0-30-20L42 50q-2-12 8-12z"/>';
+return `<svg viewBox="0 0 400 140" fill="${c}" fill-opacity="${.78*o}" stroke="#151515" stroke-width="7" stroke-linejoin="round">${l}<path d="M168 62q32-16 64 0" fill="none"/><path d="M52 50L14 40M348 50l38-10" fill="none" stroke-width="6"/></svg>`}
+/* ============ ESTADO ============ */
+let cart=[],f={g:"",t:"",c:"",p:"",s:"",o:"",q:""},coupon=0;
+const P=id=>PRODUCTS.find(p=>p.id===id);
+/* ============ HOME ============ */
+function initHome(){$("#brand").innerHTML='<svg viewBox="0 0 100 60" fill="currentColor"><path d="M0 0h13l15 27L43 0h13v60H44V23L32 45h-8L12 23v37H0z"/><rect x="63" y="2" width="35" height="56" fill="none" stroke="currentColor" stroke-width="4"/><g fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="73" cy="14" r="6"/><circle cx="88" cy="14" r="6"/></g><rect x="78" y="26" width="5" height="20"/></svg>'+BRAND;document.querySelectorAll(".bn").forEach(e=>e.textContent=BRAND);
+["#wah",".wal","#waf"].forEach(s=>document.querySelectorAll(s).forEach(a=>a.href=wa("Olá! Vim pelo site e gostaria de falar com um vendedor.")));
+$("#hg").outerHTML=glasses("#c9964a","s").replace("<svg",'<svg class="big"');$("#sg").outerHTML=glasses("#c9964a","r");
+const tg=["Todos","Masculino","Feminino","Unissex","Solar","Grau"];
+$("#fl").innerHTML=tg.map(t=>`<button class="chip ${t==="Todos"?"on":""}" data-t="${t}">${t}</button>`).join("");
+$("#fl").onclick=e=>{const t=e.target.dataset.t;if(!t)return;f.g=["Masculino","Feminino","Unissex"].includes(t)?t:"";f.t=["Solar","Grau"].includes(t)?t:"";
+document.querySelectorAll(".chip").forEach(c=>c.classList.toggle("on",c.dataset.t===t));renderGrid()};
+[...new Set(PRODUCTS.flatMap(p=>p.colors.map(c=>c.n)))].forEach(c=>$("#fc").insertAdjacentHTML("beforeend",`<option>${c}</option>`));
+[...new Set(PRODUCTS.map(p=>p.style))].forEach(c=>$("#fs").insertAdjacentHTML("beforeend",`<option>${c}</option>`));
+[["#q","q"],["#fc","c"],["#fp","p"],["#fs","s"],["#so","o"]].forEach(([s,k])=>$(s).oninput=e=>{f[k]=e.target.value;renderGrid()});
+renderGrid();
+const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add("in")),{threshold:.1});document.querySelectorAll(".rv").forEach(e=>io.observe(e))}
+function renderGrid(){let l=PRODUCTS.filter(p=>(!f.g||p.category===f.g)&&(!f.t||p.type===f.t)&&(!f.c||p.colors.some(c=>c.n===f.c))&&(!f.s||p.style===f.s)&&(!f.q||p.name.toLowerCase().includes(f.q.toLowerCase()))&&(!f.p||(f.p==="9999"?p.price>550:p.price<=+f.p)));
+if(f.o==="a")l.sort((a,b)=>a.price-b.price);if(f.o==="d")l.sort((a,b)=>b.price-a.price);if(f.o==="b")l.sort((a,b)=>b.tags.includes("best")-a.tags.includes("best"));if(f.o==="n")l.sort((a,b)=>b.tags.includes("new")-a.tags.includes("new"));
+$("#gr").innerHTML=l.map(p=>`<div class="card" onclick="location.hash='#/produto/${p.id}'"><div class="im">${p.tags[0]?`<span class="tag">${p.tags[0]==="new"?"NOVO":"MAIS VENDIDO"}</span>`:""}${glasses(p.colors[0].h,p.shape)}</div><div class="in"><b>${p.name.toUpperCase()}</b><div class="dm">${p.category} · ${p.type}</div><div class="dots">${p.colors.map(c=>`<i class="dot" style="background:${c.h}"></i>`).join("")}</div><div style="display:flex;justify-content:space-between;align-items:center"><b>${fmt(p.price)}</b><span class="dm" style="letter-spacing:.1em">VER PRODUTO →</span></div></div></div>`).join("")||"<p>Nenhum óculos encontrado com esses filtros.</p>"}
+/* ============ PÁGINAS ============ */
+let pc=0,pq=1,pi=0;
+function productPage(id){const p=P(id);if(!p)return go("/");pc=0;pq=1;pi=0;
+const draw=()=>{const col=p.colors[pc];$("#pgc").innerHTML=`<a class="crumb" href="#produtos">← VOLTAR À COLEÇÃO</a><div class="pd"><div><div class="main">${glasses(col.h,p.shape,[1,.6,.9][pi])}</div><div class="th">${[0,1,2].map(i=>`<button class="${i===pi?"on":""}" onclick="pi=${i};this.parentNode.previousSibling.innerHTML=glasses(P('${p.id}').colors[pc].h,P('${p.id}').shape,[1,.6,.9][${i}]);document.querySelectorAll('.th button').forEach((b,j)=>b.classList.toggle('on',j===${i}))">${glasses(col.h,p.shape,[1,.6,.9][i])}</button>`).join("")}</div></div>
+<div><div class="eye">${p.category} · ${p.type}</div><h2>${p.name}</h2><h3 style="margin:14px 0 4px;font-size:30px">${fmt(p.price)}</h3><div class="dm">ou 6x de ${fmt(p.price/6)} sem juros</div><p>${p.description}</p>
+<label>COR: ${col.n}</label><div>${p.colors.map((c,i)=>`<span class="sw ${i===pc?"on":""}" style="background:${c.h}" onclick="pc=${i};drawP()" title="${c.n}"></span>`).join("")}</div>
+<label>QUANTIDADE</label><div class="qty"><button onclick="pq=Math.max(1,pq-1);drawP()">−</button><span>${pq}</span><button onclick="pq=Math.min(${p.stock},pq+1);drawP()">+</button></div>
+<p class="dm">${p.stock>0?`✓ Em estoque (${p.stock} un.)`:"Indisponível"} · Material: ${p.material} · Tamanhos: ${p.sizes.join("/")} · Largura 140mm · Ponte 18mm</p>
+<div style="display:grid;gap:10px;margin-top:18px"><button class="btn ac w100" onclick="addCart('${p.id}',pc,pq);go('/checkout')">Comprar agora</button><button class="btn o w100" onclick="addCart('${p.id}',pc,pq,1)">Adicionar ao carrinho</button>
+<a class="btn w100" target="_blank" rel="noopener" href="${wa(`Olá! Tenho interesse no modelo ${p.name}, no valor de ${fmt(p.price)}. Gostaria de saber mais informações.`)}" style="background:#25d366;border-color:#25d366;color:#fff">Comprar pelo WhatsApp</a>
+<button class="btn o w100" onclick="openChat('${p.id}')">Falar com um vendedor</button></div>
+<p class="dm">🔒 Compra segura · Troca em até 7 dias · Garantia de 1 ano</p></div></div>`};
+window.drawP=draw;draw()}
+function addCart(id,c,q,open){const e=cart.find(i=>i.id===id&&i.c===c);e?e.q+=q:cart.push({id,c,q});upd();if(open){toast("Adicionado ao carrinho");openCart()}}
+function upd(){$("#cn").textContent=cart.reduce((a,i)=>a+i.q,0);renderCart()}
+function totals(){const sub=cart.reduce((a,i)=>a+P(i.id).price*i.q,0),d=sub*coupon,sh=!sub||sub>=FREE_SHIP?0:SHIP_FLAT;return{sub,d,sh,tot:sub-d+sh}}
+function renderCart(){const t=totals();$("#cart").innerHTML=`<div style="display:flex;justify-content:space-between"><h3 style="font-size:28px">Carrinho</h3><button class="ic" onclick="closeAll()">FECHAR ✕</button></div><div class="bd">${cart.map((i,n)=>{const p=P(i.id);return`<div class="ci">${glasses(p.colors[i.c].h,p.shape)}<div style="flex:1"><b>${p.name}</b><div class="dm">${p.colors[i.c].n} · ${fmt(p.price)}</div><div class="qty"><button onclick="chq(${n},-1)">−</button><span>${i.q}</span><button onclick="chq(${n},1)">+</button></div></div><button class="ic" onclick="cart.splice(${n},1);upd()">Remover</button></div>`}).join("")||"<p>Seu carrinho está vazio.</p>"}</div>
+<div style="display:flex;gap:8px;margin:12px 0"><input id="cp" placeholder="Cupom (ex.: BEMVINDO10)"><button class="btn o" onclick="applyC()">Aplicar</button></div>
+<div class="dm">Subtotal ${fmt(t.sub)}${t.d?` · Desconto −${fmt(t.d)}`:""} · Frete ${t.sh?fmt(t.sh):"grátis"}</div><h3 style="font-size:26px;margin:6px 0 12px">Total ${fmt(t.tot)}</h3>
+<button class="btn ac w100" ${cart.length?"":"disabled"} onclick="go('/checkout')">Finalizar compra</button>`}
+function chq(n,d){cart[n].q=Math.max(1,Math.min(P(cart[n].id).stock,cart[n].q+d));upd()}
+function applyC(){const c=COUPONS[$("#cp").value.trim().toUpperCase()];coupon=c||0;toast(c?"Cupom aplicado!":"Cupom inválido");renderCart()}
+function openCart(){renderCart();$("#cart").classList.add("on");$("#ov").classList.add("on")}
+function closeAll(){document.querySelectorAll(".dr").forEach(d=>d.classList.remove("on"));$("#ov").classList.remove("on")}
+function openChat(id){closeAll();$("#chat").innerHTML=`<div style="display:flex;justify-content:space-between"><h3 style="font-size:28px">Falar com vendedor</h3><button class="ic" onclick="closeAll()">✕</button></div><div class="bd" id="cb"><p><b>Olá!</b> Como podemos ajudar?</p><form id="cf"><label>NOME</label><input name="n" required><label>WHATSAPP</label><input name="w" required inputmode="tel"><label>PRODUTO</label><select name="p"><option value="">Dúvida geral</option>${PRODUCTS.map(p=>`<option value="${p.id}" ${p.id===id?"selected":""}>${p.name}</option>`).join("")}</select><label>MENSAGEM</label><textarea name="m" rows="4">Olá, gostaria de tirar uma dúvida sobre este produto.</textarea><br><br><button class="btn ac w100">Enviar</button></form></div>`;
+$("#cf").onsubmit=async e=>{e.preventDefault();await services.sendLead(Object.fromEntries(new FormData(e.target)));$("#cb").innerHTML='<div class="ok"><b>Mensagem enviada.</b><p>Um vendedor entrará em contato com você.</p><a class="btn w100" target="_blank" rel="noopener" href="'+wa("Olá! Vim pelo site e gostaria de falar com um vendedor.")+'">Ou continue pelo WhatsApp</a></div>'};
+$("#chat").classList.add("on");$("#ov").classList.add("on")}
+function checkoutPage(){closeAll();if(!cart.length){$("#pgc").innerHTML='<br><h2>Carrinho vazio</h2><p>Adicione um óculos para continuar.</p><a class="btn" href="#produtos">Ver coleção</a>';return}const t=totals();let m="PIX";
+$("#pgc").innerHTML=`<a class="crumb" href="#produtos">← CONTINUAR COMPRANDO</a><h2>Checkout</h2><br><div class="pd"><form id="ck"><div class="box"><h3 style="font-size:20px">Dados do cliente</h3><div class="f"><div class="s"><label>NOME COMPLETO</label><input required></div><div><label>CPF</label><input required inputmode="numeric"></div><div><label>E-MAIL</label><input type="email" required></div><div><label>TELEFONE</label><input></div><div><label>WHATSAPP</label><input required></div></div></div>
+<div class="box"><h3 style="font-size:20px">Endereço</h3><div class="f"><div><label>CEP</label><input required inputmode="numeric"></div><div><label>RUA</label><input required></div><div><label>NÚMERO</label><input required></div><div><label>COMPLEMENTO</label><input></div><div><label>BAIRRO</label><input required></div><div><label>CIDADE</label><input required></div><div><label>ESTADO</label><input required maxlength="2"></div></div></div>
+<div class="box"><h3 style="font-size:20px">Entrega</h3><label><input type="radio" name="e" checked style="width:auto"> Padrão · 5 a 9 dias úteis · ${t.sh?fmt(t.sh):"Grátis"}</label><label><input type="radio" name="e" style="width:auto"> Expresso · 2 a 4 dias úteis · ${fmt(t.sh+24)}</label></div>
+<div class="box"><h3 style="font-size:20px">Pagamento</h3><div class="pay">${["PIX","Cartão de crédito","Cartão de débito"].map((x,i)=>`<button type="button" class="chip ${i?"":"on"}" onclick="document.querySelectorAll('.pay .chip').forEach(c=>c.classList.remove('on'));this.classList.add('on')">${x}</button>`).join("")}</div><p class="dm">Gateway de pagamento <b>não conectado</b> (Mercado Pago / Stripe / Asaas). Veja <code>services.pay()</code> no código. Nenhuma cobrança real é feita.</p></div>
+<button class="btn ac w100">Confirmar pedido (simulação)</button></form>
+<div class="box" style="height:fit-content">${cart.map(i=>`<div class="ci"><b style="flex:1">${P(i.id).name} ×${i.q}</b>${fmt(P(i.id).price*i.q)}</div>`).join("")}<p class="dm">Subtotal ${fmt(t.sub)}${t.d?` · Desconto −${fmt(t.d)}`:""} · Frete ${t.sh?fmt(t.sh):"grátis"}</p><h3 style="font-size:26px">Total ${fmt(t.tot)}</h3></div></div>`;
+$("#ck").onsubmit=async e=>{e.preventDefault();const o=await services.createOrder({cart,total:t.tot});await services.pay(o,m);cart=[];coupon=0;upd();
+$("#pgc").innerHTML=`<br><div class="ok"><h2>Pedido recebido</h2><p>Número do pedido: <b>${o.number}</b></p><p class="dm">Modo demonstração: nenhum pagamento foi processado.</p><a class="btn" href="#/rastreio">Acompanhar pedido</a></div>`}}
+function returnsPage(){$("#pgc").innerHTML=`<a class="crumb" href="#/">← INÍCIO</a><h2>Trocas e devoluções</h2><p style="color:var(--mut)">Troca ou devolução em até 7 dias após o recebimento.</p><form id="rf" class="box f"><div><label>Nº DO PEDIDO</label><input required></div><div><label>NOME</label><input required></div><div><label>E-MAIL</label><input type="email" required></div><div><label>WHATSAPP</label><input required></div><div><label>PRODUTO</label><select>${PRODUCTS.map(p=>`<option>${p.name}</option>`).join("")}</select></div><div><label>TIPO DE SOLICITAÇÃO</label><select>${["Devolução","Troca","Produto com defeito","Tamanho inadequado","Produto diferente do pedido","Outro"].map(x=>`<option>${x}</option>`).join("")}</select></div><div class="s"><label>DESCREVA O PROBLEMA</label><textarea rows="4" required></textarea></div><div class="s"><label>ANEXAR FOTOS</label><input type="file" accept="image/*" multiple></div><div class="s"><button class="btn ac w100">Solicitar devolução</button></div></form><div id="rr"></div>`;
+$("#rf").onsubmit=async e=>{e.preventDefault();const r=await services.sendReturn({});$("#rr").innerHTML=`<div class="ok"><b>Solicitação recebida.</b><p>Protocolo: <b>${r.protocol}</b></p></div>`;e.target.reset()}}
+function trackPage(){$("#pgc").innerHTML=`<a class="crumb" href="#/">← INÍCIO</a><h2>Acompanhe seu pedido</h2><form id="tf" class="box f"><div><label>NÚMERO DO PEDIDO</label><input required placeholder="PED12345"></div><div><label>CPF OU E-MAIL</label><input required></div><div class="s"><button class="btn ac w100">Rastrear pedido</button></div></form><div id="tr"></div>`;
+$("#tf").onsubmit=async e=>{e.preventDefault();const r=await services.trackOrder(e.target[0].value,e.target[1].value);const S=["Pedido recebido","Pagamento confirmado","Em preparação","Enviado","A caminho","Entregue"];
+$("#tr").innerHTML=`<div class="box"><ul class="stp">${S.map((s,i)=>`<li class="${i<=r.step?"d":""}">${s}</li>`).join("")}</ul><p class="dm">Dados simulados. Conectar ao backend em services.trackOrder().</p></div>`}}
+/* ============ ROTAS ============ */
+function go(p){location.hash="#"+p}
+function route(){const h=location.hash,m=h.match(/^#\/(\w+)\/?(\w+)?/);closeAll();const pg=m&&["produto","checkout","trocas","rastreio"].includes(m[1]);
+$("#home").style.display=pg?"none":"block";$("#pg").style.display=pg?"block":"none";if(!pg){if(!h||h==="#/")scrollTo(0,0);return}scrollTo(0,0);
+({produto:()=>productPage(m[2]),checkout:checkoutPage,trocas:returnsPage,rastreio:trackPage})[m[1]]()}
+addEventListener("hashchange",route);initHome();upd();route();
+</script></body></html>
